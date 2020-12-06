@@ -13,7 +13,7 @@ const Posts = (props) => {
     const [showCreatePost, setShowCreatePost] = useState(false);
 
     const postsService = new PostService();
-    const {id:userId} = props;
+    const { id:userId } = props;
     useEffect(() => getPosts(), [])
 
     async function getPosts() {
@@ -41,30 +41,21 @@ const Posts = (props) => {
     }
 
     return (
-        <div>
+         <div>
             {
-                (posts && showPost) ?
-                    <div>NEWPost</div>
-                    : (
-                        <div>
-                            <div>{
-                                posts && posts.map(post => <Post post={post} removePost={ removePost } userId={userId}/>
-                            )}
-                            </div>
-                            <div>
-                                {
-                                    showCreatePost ?
-                                        <CreateNewPost createNewPost={createNewPost} savedNewPost={ savedNewPost } />
-                                        :
-                                        <button type="button" className="btn btn-success" id='btn'
-                                                onClick={ showCreatePostBtn }>
-                                            Create new post
-                                        </button>
-                                }
-                            </div>
-                        </div>
-                    )
+                posts && posts.map(post => <Post post={ post } removePost={removePost} userId={ userId }/>)
             }
+            <div>
+                {
+                    showCreatePost ?
+                        <CreateNewPost createNewPost={ createNewPost } savedNewPost={ savedNewPost }/>
+                        :
+                        <button type="button" className="btn btn-success" id='btn'
+                                onClick={ showCreatePostBtn }>
+                            Create new post
+                        </button>
+                }
+            </div>
         </div>
     )
 };
