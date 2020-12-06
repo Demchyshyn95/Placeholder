@@ -10,7 +10,7 @@ const Selected_Post = ({match}) => {
     useEffect(() => getPost(), []);
 
     const getPost = async () => {
-        const {id} = match.params;
+        const { id } = match.params;
         const post = await postsService.getPostById(id);
         setPost(post);
     }
@@ -19,10 +19,10 @@ const Selected_Post = ({match}) => {
         <div className="center"> {
             post ?
                 <div>
-                    <p><h2 className="red">Post - {post.id}</h2></p>
-                    <p className="blue">userId: {post.userId}</p>
-                    <p>title: {post.title}</p>
-                    <p>body: {post.body}</p>
+                    <p><h2 className="red">Post - { post.id }</h2></p>
+                    <p className="blue">userId: { post.userId }</p>
+                    <p>title: { post.title }</p>
+                    <p>body: { post.body }</p>
                     <hr/>
                 </div>
                 :
