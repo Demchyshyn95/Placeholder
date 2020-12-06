@@ -1,4 +1,4 @@
-const CreateNewPost = ({savedNewPost, createNewPost}) => {
+const CreateNewPost = ({ savedNewPost, createNewPost }) => {
     return (
         <div>
             {
